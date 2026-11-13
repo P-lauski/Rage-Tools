@@ -24,7 +24,8 @@ namespace RageLightEditor
 
             check("rpf view kinds", RpfViewKind_N4("a.ydr") == "model" && RpfViewKind_N4("a.ytd") == "textures" &&
                                     RpfViewKind_N4("a.ymap") == "xml" && RpfViewKind_N4("a.meta") == "text" &&
-                                    RpfViewKind_N4("a.ypt") == "particles" && RpfViewKind_N4("a.exe") == null,
+                                    RpfViewKind_N4("a.ypt") == "particles" && RpfViewKind_N4("a.exe") == null &&
+                                    RpfViewKind_N4("a.awc") == "audio" && RpfViewKind_N4("a.ytyp") == "xml",
                   $"{RpfViewKind_N4("a.ymap")} / {RpfViewKind_N4("a.meta")} / {RpfViewKind_N4("a.ypt")}");
 
             check("rpf size text", RpfExplorer.SizeText(0) == "" && RpfExplorer.SizeText(900) == "900 B" &&

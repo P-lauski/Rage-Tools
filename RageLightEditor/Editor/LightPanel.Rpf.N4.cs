@@ -376,6 +376,8 @@ namespace RageLightEditor.Editor
                 if (fe is RpfResourceFileEntry rr)
                     ImGui.TextDisabled($"resource v{rr.Version}   sys {rr.SystemSize / 1024} KB   gfx {rr.GraphicsSize / 1024} KB");
                 if (fe.IsEncrypted) ImGui.TextDisabled("encrypted in the archive");
+                if (ArchiveBrowser.KindOf(fe) == "awc")
+                    DrawAwcPlayer_U57("rpf:" + fe.Path, () => ArchiveBrowser.Extract(fe), fe.Name, fe);
             }
             ImGui.Spacing();
             ImGui.TextDisabled("Where it lives");
@@ -399,6 +401,7 @@ namespace RageLightEditor.Editor
                         : kind == "textures" ? "Opens in the model viewer window, on its Textures tab."
                         : kind == "collision" ? "Opens in the model viewer window, drawn as collision."
                         : kind == "particles" ? "Opens in the Particles workspace."
+                        : kind == "audio" ? "Plays it in the player above."
                         : "Converted to XML and shown as text.");
 
                 if (ImGui.Button("Extract...", new Vector2(-1, 0))) RequestRpfExtract = fe;

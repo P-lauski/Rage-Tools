@@ -1561,6 +1561,7 @@ namespace RageLightEditor.Editor
 
         private void DrawRightPanel(float displayWidth, float displayHeight)
         {
+            EndAudioFrame_U57();
             float rShellTop = TopBarHeight + (WorldMode ? ToolbarHNow_U5 : 0.0f);
             displayHeight -= rShellTop + (WorldMode ? StatusH : 0.0f);
             bool rightOpen = true;

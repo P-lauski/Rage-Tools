@@ -109,6 +109,7 @@ namespace RageLightEditor
             if (p.RequestRpfDiskConvertMany_V52 != null)
             { var dm = p.RequestRpfDiskConvertMany_V52; p.RequestRpfDiskConvertMany_V52 = null; DoRpfDiskConvertMany_V52(dm); }
             ServiceRpfDragOut_V55();
+            ServiceAwcExport_U57();
             ServiceRpfMulti_U19();
 
             if (p.RequestRpfExtract != null)
@@ -174,6 +175,12 @@ namespace RageLightEditor
                         break;
                     case "particles":
                         OpenYptFromArchive_N4(e);
+                        break;
+                    case "audio":
+                        panel.Rpf.Reveal(e);
+                        panel.AwcAutoPlay_U57 = true;
+                        if (IsHeadless) panel.Audio_U57.Volume = 0f;
+                        panel.RpfStatus = "playing " + e.Name;
                         break;
                     case "text":
                         panel.ShowRpfText(e.Name, DecodeText_N4(ArchiveBrowser.Extract(e)));

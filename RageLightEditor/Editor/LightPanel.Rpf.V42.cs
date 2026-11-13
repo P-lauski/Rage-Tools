@@ -95,7 +95,8 @@ namespace RageLightEditor.Editor
 
             float footer = ImGui.GetTextLineHeightWithSpacing() * 2 + 12;
             var flags = ImGuiTableFlags.Sortable | ImGuiTableFlags.RowBg | ImGuiTableFlags.Resizable
-                      | ImGuiTableFlags.ScrollY | ImGuiTableFlags.BordersInnerV | ImGuiTableFlags.BordersOuterH;
+                      | ImGuiTableFlags.ScrollY | ImGuiTableFlags.BordersInnerV | ImGuiTableFlags.BordersOuterH
+                      | ImGuiTableFlags.Hideable;
 
             var acc = UiTheme.Accent;
             ImGui.PushStyleVar(ImGuiStyleVar.CellPadding, new Vector2(8, 3));
@@ -108,14 +109,15 @@ namespace RageLightEditor.Editor
             ImGui.PushStyleColor(ImGuiCol.HeaderActive, new Vector4(acc.X, acc.Y, acc.Z, 0.42f));
 
             BeginRpfReveal_U1();
-            if (ImGui.BeginTable("##rpftable", 5, flags, new Vector2(0, -footer)))
+            if (ImGui.BeginTable("##rpftable_u57", 5, flags, new Vector2(0, -footer)))
             {
                 ImGui.TableSetupScrollFreeze(0, 1);
-                ImGui.TableSetupColumn("Name", ImGuiTableColumnFlags.WidthStretch | ImGuiTableColumnFlags.DefaultSort, 0.34f);
-                ImGui.TableSetupColumn("Type", ImGuiTableColumnFlags.WidthFixed, 140);
-                ImGui.TableSetupColumn("Size", ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.PreferSortDescending, 76);
-                ImGui.TableSetupColumn("Attributes", ImGuiTableColumnFlags.WidthFixed, 150);
-                ImGui.TableSetupColumn("Path", ImGuiTableColumnFlags.WidthStretch, 0.46f);
+                float us = UiScale_V17.Scale;
+                ImGui.TableSetupColumn("Name", ImGuiTableColumnFlags.WidthStretch | ImGuiTableColumnFlags.DefaultSort | ImGuiTableColumnFlags.NoHide, 0.70f);
+                ImGui.TableSetupColumn("Type", ImGuiTableColumnFlags.WidthFixed, 130 * us);
+                ImGui.TableSetupColumn("Size", ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.PreferSortDescending, 76 * us);
+                ImGui.TableSetupColumn("Attributes", ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.DefaultHide, 150 * us);
+                ImGui.TableSetupColumn("Path", ImGuiTableColumnFlags.WidthStretch, 0.30f);
                 ImGui.TableHeadersRow();
 
                 unsafe

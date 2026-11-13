@@ -166,6 +166,12 @@ namespace RageLightEditor
             if (string.IsNullOrEmpty(path) || !File.Exists(path)) { p.RpfStatus = "that file is gone"; return; }
             var ext = (Path.GetExtension(path) ?? "").ToLowerInvariant();
 
+            if (ext == ".awc")
+            {
+                p.AwcAutoPlay_U57 = true;
+                p.RpfStatus = "playing " + Path.GetFileName(path);
+                return;
+            }
             bool viewerTook = false;
             OpenDiskFileInModelViewer_P1(path, ref viewerTook);
             if (viewerTook) return;

@@ -580,6 +580,11 @@ namespace RageLightEditor.Editor
             ImGui.TextDisabled(r.Type ?? "");
             if (!r.IsFolder) ImGui.TextDisabled(RpfExplorer.SizeText(r.Size) + " on disk");
             else if (!string.IsNullOrEmpty(r.Attr)) ImGui.TextDisabled(r.Attr);
+            if (!r.IsFolder && (r.Name ?? "").EndsWith(".awc", System.StringComparison.OrdinalIgnoreCase))
+            {
+                var awcPath = r.Path;
+                DrawAwcPlayer_U57("disk:" + awcPath, () => System.IO.File.ReadAllBytes(awcPath), r.Name, null);
+            }
 
             ImGui.Spacing();
             ImGui.TextDisabled("Where it lives");

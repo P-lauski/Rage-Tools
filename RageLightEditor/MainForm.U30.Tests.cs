@@ -29,6 +29,7 @@ namespace RageLightEditor
             AutoSaveTest_U54(check);
             CopyLightsTest_U55(check);
             MoveHereTest_U56(check);
+            AwcAudioTest_U57(check);
         }
 
         private void CinematicEverywhereTest_U31(Action<string, bool, string> check)

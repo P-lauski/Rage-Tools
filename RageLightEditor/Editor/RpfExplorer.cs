@@ -404,8 +404,9 @@ namespace RageLightEditor.Editor
                 case "ytd": return "textures";
                 case "ypt": return "particles";
                 case "ybn": return "collision";
+                case "awc": return "audio";
                 case "ymap": case "ytyp": case "ymt": case "ynv": case "ymf": case "ynd":
-                case "ycd": case "yed": case "yld": case "ypdb": case "rel": case "awc":
+                case "ycd": case "yed": case "yld": case "ypdb": case "rel":
                 case "cut": case "yvr": case "ywr": case "yfd": case "pso":
                     return "xml";
                 case "xml": case "meta": case "lua": case "txt": case "ini": case "cfg":
